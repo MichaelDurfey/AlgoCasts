@@ -19,28 +19,38 @@ class Node {
   }
 
   insert(data) {
-    let queue = [this];
     let inner = (node) => {
-      if (node.left) {
-        inner(node.left);
-      }
-      if (node.right) {
-        inner(node.right);
-      } 
-      if (node.left === null) {
-        node.left = new Node(data);
-      } else if (node.right === null) {
-        node.right = new Node(data);
+      if (node.data < data) {
+        if (node.right) {
+         inner(node.right);
+        } else {
+          node.right = new Node(data);
+        }
+      } else if (node.data > data) {
+        if (node.left) {
+          inner(node.left);
+        } else {
+          node.left = new Node(data);
+        }
+      } else if (node.data === data) {
+        if (node.left) {
+          inner(node.left);
+        } else if (node.right){
+          inner(node.right)
+        } else {
+          node.right = new Node(data);
+        }
       }
     }
     inner(this);
+
   }
 
   contains(data) {
     let queue = [this];
     while (queue.length) {
       let node = queue.shift();
-      if (node.value === data) {
+      if (node.data === data) {
         return node;
       } 
       if (node.left) {
@@ -50,6 +60,7 @@ class Node {
         queue.push(node.right);
       }
     }
+    return null;
   }
 }
 
