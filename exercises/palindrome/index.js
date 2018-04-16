@@ -7,6 +7,22 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+/* Ideal solution because it is super easy to write and straightforward. Reverses a string and then compares it to the input string. */
+
+function palindrome(str) {
+  return str.split('').reverse().join('') === str;
+}
 
 module.exports = palindrome;
+
+// function palindrome(str) {
+//   return str.split('').reduce((acc, curr) => {
+//     return acc = curr + acc
+//   }, '') === str;
+// }
+
+// function palindrome(str) {
+//   return str.split('').every((char, i) => {
+//     return char === str[str.length - 1 - i]
+//   })
+// }
