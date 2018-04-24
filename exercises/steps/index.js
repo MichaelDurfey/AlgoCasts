@@ -27,7 +27,7 @@ function steps(n) {
 }
 
 function fillSpaces(hash, n) {
-  while (hash.length !== n) {
+  while (hash.length < n) {
       hash += ' ';
     }
     console.log(hash)
@@ -38,3 +38,28 @@ steps(8)
 
 
 module.exports = steps;
+
+
+/* recursive solution
+
+function steps(n, row = 0, stair = '') {
+  if (n === row) {
+    return;
+  }
+
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
+  if (stair.length <= row) {
+    stair += '#';
+  } else {
+    stair += ' ';
+  }
+  steps(n, row, stair)
+}
+
+
+
+steps(8)
+*/
