@@ -15,6 +15,11 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
+function matrix(n) {
+  let emptyMatrix = Array(n).map(space => {
+    return Array(n).fill('');
+  })
+  
+}
 
 module.exports = matrix;
