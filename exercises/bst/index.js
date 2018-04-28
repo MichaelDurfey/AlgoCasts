@@ -17,32 +17,17 @@ class Node {
     this.left = null;
     this.right = null;
   }
-
   insert(data) {
-    let inner = (node) => {
-      if (node.data < data) {
-        if (node.right) {
-         inner(node.right);
-        } else {
-          node.right = new Node(data);
-        }
-      } else if (node.data > data) {
-        if (node.left) {
-          inner(node.left);
-        } else {
-          node.left = new Node(data);
-        }
-      } else if (node.data === data) {
-        if (node.left) {
-          inner(node.left);
-        } else if (node.right){
-          inner(node.right)
-        } else {
-          node.right = new Node(data);
-        }
-      }
+
+    if (this.data > data && this.left) {
+      this.left.insert(data)
+    } else if (this.data > data) {
+      this.left = new Node(data);
+    } else if (this.data < data && this.right) {
+      this.right.insert(data);
+    } else if (this.data < data) {
+      this.right = new Node(data);
     }
-    inner(this);
 
   }
 
