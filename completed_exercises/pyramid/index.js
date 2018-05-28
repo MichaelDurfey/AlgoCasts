@@ -20,7 +20,6 @@ function pyramid(n, row = 0, level = '') {
   }
 
   if (level.length === 2 * n - 1) {
-    console.log(level);
     return pyramid(n, row + 1);
   }
 
