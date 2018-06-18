@@ -46,7 +46,7 @@ function selectionSort(arr) {
       let temp = arr[indexOfMin];
       arr[indexOfMin] = arr[i];
       arr[i] = temp;
-     }
+    }
   }
   return arr;
 }
